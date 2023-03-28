@@ -24,16 +24,18 @@ console.log(bankWaiting());
 * * * *  
 * * * * *    */ 
 function piramideAsteriscos() {
-    let asteriscos = [];
     let piso = [];
-    for (let index = 0; index <= 5; index++) { 
-        asteriscos.push("*");   
-        piso.push(asteriscos.join(" ")); 
+    for (let i = 0; i <= 5; i++) { 
+        let asteriscos = "";
+        for (let j = 1; j <= i; j++) {  
+            asteriscos += "* ";
+        }
+        piso.push(asteriscos); 
     }  
     return(piso.join("  \n"));
 } 
 let piramide = document.getElementById("piramide");
-piramide.innerHTML = piramideAsteriscos().replace(/\s\s/g, "<br>");;
+piramide.innerHTML = piramideAsteriscos().replace(/\s\s\n/g, "<br>");
 console.log("********** Exercise #2 **********");
 console.log(piramideAsteriscos()); 
 
@@ -59,20 +61,18 @@ function odds() {
     return(arrNums.join(", "))
 }
 
-function whileLoop() {  
-    let n = 3;
+function whileLoop(n) { 
     let arrNums = [];
     let index=0;
     while (n>=1) {
-        arrNums.push("["+(index+1)+"]"); 
+        arrNums.push("[ "+(index+1)+" ]"); 
         index++;
         n--;
     } 
     return(arrNums.join(" "));
 }
 
-function sumatoria() {  
-    let n = 3;
+function sumatoria(n) {  
     let index=1;
     let resultado=0;
     while (n>=1) { 
@@ -94,9 +94,9 @@ tresDos.innerHTML = odds();
 console.log(odds());
 console.log("---------- whileLoop ----------");
 let tresTres = document.getElementById("tresTres");
-tresTres.innerHTML = whileLoop();
-console.log(whileLoop());
+tresTres.innerHTML = whileLoop(3);
+console.log(whileLoop(3));
 console.log("---------- sumatoria ----------");
 let tresCuatro = document.getElementById("tresCuatro");
-tresCuatro.innerHTML = sumatoria();
-console.log(sumatoria());
+tresCuatro.innerHTML = sumatoria(3);
+console.log(sumatoria(3));
