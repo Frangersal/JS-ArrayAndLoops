@@ -19,43 +19,32 @@ One more person (Elena) shows up and goes to the end of the line.
 What does the queue look like?
  */
 
-function bankWaiting() {
-    let personas = ["Sofia", "David", "Juan"];
-    //Forma al ultimo elemento
-    personas.push("Sara","Augustin"); 
-    //Primera persona es llamada, quitar primera persona del array
-    personas.shift();
-
-    personas.splice(1, 0, "Renata");
-
-    //Forma al ultimo elemento
-    personas.push("Elena"); 
-    for (let index = 0; index < personas.length; index++) {
-        console.log(personas[index]); 
-    } 
+function bankWaiting() {    
+    let personas = ["Sofia", "David", "Juan"];//Inicio    
+    personas.push("Sara","Augustin"); //2 se forman al ultimo elemento    
+    personas.shift();//Primera persona es llamada     
+    personas.splice(1, 0, "Renata"); //1 persona se ponde detras de David
+    personas.push("Elena"); //Forma al ultimo elemento
+    return(personas.join(", ")); 
 }
-console.log(bankWaiting());
-console.log("*********");
-/*
-Write a JavaScript program to construct the following pattern, using a nested for loop.
+console.log("********** Exercise #1 **********");
+console.log(bankWaiting()); 
+/* Write a JavaScript program to construct the following pattern, using a nested for loop.
 *  
 * *  
 * * *  
 * * * *  
-* * * * *
-*/
-
+* * * * *    */ 
 function piramide() {
     let asteriscos = [];
     for (let index = 0; index <= 5; index++) { 
         asteriscos.push("*");  
-        let strAsteriscos = asteriscos.join(" ");
-        console.log(strAsteriscos);
-    } 
+        console.log(asteriscos.join(" "));
+    }  
 }
 
-console.log(piramide());
-console.log("*********");
+console.log("********** Exercise #2 **********");
+console.log(piramide()); 
 
 /*
 – Repeatedly print the value of the variable xValue, decreasing it by 0.5 each time,
@@ -73,56 +62,50 @@ Examples:
 n = 5 sum = 15
 n = 19 sum = 190
 */
-function fValue() { 
-    /*
-    
-    for (let xValue = -100; xValue >= 0; xValue-=0.5) {  
-        console.log(xValue);
-    } 
-    */
+
+function fValue() {
+    let arrNums = [];  
+    for (let xValue = 5; xValue >= 0; xValue-=0.5) {   
+        arrNums.push(xValue); 
+    }  
+    return(arrNums.join(", "))
 }
 function odds() { 
+    let arrNums = [];  
     for (let index = 1; index <= 100; index+=2) { 
-        console.log(index);
+        arrNums.push(index); 
     }
+    return(arrNums.join(", "))
 }
 function whileLoop() {  
     let n = 3;
     let arrNums = [];
-    let i=0;
+    let index=0;
     while (n>=1) {
-        let isuma=parseInt(i)+1;
-        //console.log(isuma);
-        arrNums.push("["+isuma+"]");
-        
-        i++;
+        arrNums.push("["+(index+1)+"]"); 
+        index++;
         n--;
-    }
-    
+    } 
     return(arrNums.join(" "));
 }
-
-
-function whileLoop() {  
+function sumatoria() {  
     let n = 3;
-    let arrNums = [];
-    let i=0;
-    while (n>=1) {
-        let isuma=parseInt(i)+1;
-        //console.log(isuma);
-        arrNums.push("["+isuma+"]");
-        
-        i++;
-        n--;
+    let index=1;
+    let resultado=0;
+    while (n>=1) { 
+        resultado +=index;
+        index++;
+        n--;        
     }
-    
-    return(arrNums.join(" "));
+    return(resultado);  
 }
 
-console.log("********* fValue");
-//console.log(fValue());
-console.log("********* odds");
+console.log("********** Exercise #3 **********");
+console.log("---------- fValue ----------");
+console.log(fValue());
+console.log("---------- odds ----------");
 console.log(odds());
-console.log("*********whileLoop");
+console.log("---------- whileLoop ----------");
 console.log(whileLoop());
-console.log("*********");
+console.log("---------- sumatoria ----------");
+console.log(sumatoria());
